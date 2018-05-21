@@ -1,4 +1,4 @@
-from muni.lib import get_predictions
+from muni import get_predictions
 
 for result in get_predictions():
     print(result.get('routeTitle'))
