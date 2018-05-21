@@ -7,14 +7,17 @@ for result in get_predictions():
     if isinstance(directions, dict): # sometimes it comes back as a single item
         directions = [directions]
 
-    for direction in directions:
-        print(direction.get('title'))
-        predictions = direction.get('prediction')
-        if isinstance(predictions, dict):
-            predictions = [predictions]
+    if directions:
+        for direction in directions:
+            print(direction.get('title'))
+            predictions = direction.get('prediction')
+            if isinstance(predictions, dict):
+                predictions = [predictions]
 
-        for prediction in predictions:
-            seconds = float(prediction.get('seconds'))
-            minutes = round(seconds / 60, 2)
-            print(str(minutes) + ' minutes')
+            for prediction in predictions:
+                seconds = float(prediction.get('seconds'))
+                minutes = round(seconds / 60, 2)
+                print(str(minutes) + ' minutes')
+    else:
+        print('no estimates')
     print('------------------------------------------')
