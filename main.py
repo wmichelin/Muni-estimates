@@ -7,4 +7,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def get_predictions():
-    return jsonify(PredictionController().handle())
+    response = jsonify(PredictionController().handle())
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response

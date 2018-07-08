@@ -35,4 +35,5 @@ class PredictionController:
 
             predictionResults.append(predictionResult)
 
-        return predictionResults
+        # sort by line title
+        return sorted(predictionResults, key=lambda predictionResult: predictionResult.get('lineTitle'))
